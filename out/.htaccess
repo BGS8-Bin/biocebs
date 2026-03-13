@@ -1,0 +1,96 @@
+# ============================================================
+# BIOCEBS Hub — Apache .htaccess
+# React Router SPA + Optimizaciones de rendimiento
+# ============================================================
+
+# Habilitar motor de reescritura
+Options -MultiViews
+RewriteEngine On
+
+# ── Redirigir HTTP → HTTPS (descomenta en producción) ──────
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ── Redirigir www → sin www (descomenta si lo prefieres) ───
+# RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+# RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+
+# ── React Router: enviar todo al index.html ─────────────────
+# No redirigir si es un archivo real o directorio real
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# No redirigir assets (js, css, imágenes, fuentes, etc.)
+RewriteCond %{REQUEST_URI} !^/assets/
+RewriteRule ^ index.html [L]
+
+# ── Cache de assets estáticos ───────────────────────────────
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # HTML: sin cache (siempre fresco)
+  ExpiresByType text/html "access plus 0 seconds"
+
+  # JS y CSS con hash en nombre (Vite los versiona automáticamente)
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+  ExpiresByType text/css "access plus 1 year"
+
+  # Fuentes
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType application/font-woff2 "access plus 1 year"
+
+  # Imágenes
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+</IfModule>
+
+# ── Cabeceras de cache con ETag ─────────────────────────────
+<IfModule mod_headers.c>
+  # Assets con hash: cache agresivo
+  <FilesMatch "\.(js|css|woff2|woff|png|jpg|jpeg|webp|svg|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # HTML: siempre revalidar
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires 0
+  </FilesMatch>
+
+  # Seguridad básica
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-XSS-Protection "1; mode=block"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ── Compresión GZIP ─────────────────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE font/woff2
+  AddOutputFilterByType DEFLATE font/woff
+</IfModule>
+
+# ── Tipos MIME correctos ────────────────────────────────────
+<IfModule mod_mime.c>
+  AddType application/javascript .js .mjs
+  AddType text/css .css
+  AddType font/woff2 .woff2
+  AddType font/woff .woff
+  AddType image/webp .webp
+</IfModule>
+
+# ── Proteger archivos sensibles ─────────────────────────────
+<FilesMatch "^\.env|\.git|package\.json|package-lock\.json">
+  Order Allow,Deny
+  Deny from all
+</FilesMatch>

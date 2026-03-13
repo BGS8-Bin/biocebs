@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* BIOCEBS Design System - Centro de Estudios en Biociencias */
+/* Paleta de colores verde natural/sage - Identidad visual aprobada */
+
+@layer base {
+  :root {
+    /* BIOCEBS Brand Colors - Verde Natural/Sage */
+    /* --dark-green: #3f4d3d */
+    /* --medium-green: #6b7a69 */
+    /* --sage-green: #96a480 (primary) */
+    /* --light-sage: #b9c5ae */
+    /* --light-grey-green: #d8d9c8 */
+    /* --off-white: #f6eede */
+
+    --background: 0 0% 100%;
+    --foreground: 128 14% 27%; /* dark-green */
+
+    --card: 0 0% 100%;
+    --card-foreground: 128 14% 27%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 128 14% 27%;
+
+    /* Primary: Sage Green - Color principal BIOCEBS */
+    --primary: 83 17% 57%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: Off-white/Crema */
+    --secondary: 40 57% 92%;
+    --secondary-foreground: 128 14% 27%;
+
+    /* Muted: Off-white */
+    --muted: 40 57% 92%;
+    --muted-foreground: 127 7% 45%; /* medium-green */
+
+    /* Accent: Light Sage */
+    --accent: 92 17% 73%;
+    --accent-foreground: 128 14% 27%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Border: Light grey-green */
+    --border: 64 18% 82%;
+    --input: 64 18% 82%;
+    --ring: 83 17% 57%;
+
+    --radius: 0.5rem;
+
+    /* Custom tokens */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 100%;
+
+    /* BIOCEBS specific colors */
+    --dark-green: 128 14% 27%;
+    --medium-green: 127 7% 45%;
+    --sage-green: 83 17% 57%;
+    --light-sage: 92 17% 73%;
+    --light-grey-green: 64 18% 82%;
+    --off-white: 40 57% 92%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(83, 17%, 57%) 0%, hsl(92, 17%, 73%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(128, 14%, 27%) 0%, hsl(83, 17%, 57%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0, 0%, 100%) 0%, hsl(40, 57%, 96%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(40, 57%, 96%) 0%, hsl(0, 0%, 100%) 100%);
+
+    /* Shadows - using sage tones */
+    --shadow-sm: 0 1px 2px 0 hsl(128 14% 27% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(128 14% 27% / 0.08), 0 2px 4px -2px hsl(128 14% 27% / 0.05);
+    --shadow-lg: 0 10px 15px -3px hsl(128 14% 27% / 0.1), 0 4px 6px -4px hsl(128 14% 27% / 0.05);
+    --shadow-xl: 0 20px 25px -5px hsl(128 14% 27% / 0.1), 0 8px 10px -6px hsl(128 14% 27% / 0.05);
+    --shadow-glow: 0 0 40px hsl(83 17% 57% / 0.3);
+
+    /* Sidebar - Dark green background */
+    --sidebar-background: 128 14% 27%;
+    --sidebar-foreground: 40 57% 92%;
+    --sidebar-primary: 83 17% 57%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 128 14% 35%;
+    --sidebar-accent-foreground: 40 57% 92%;
+    --sidebar-border: 128 14% 32%;
+    --sidebar-ring: 83 17% 57%;
+  }
+
+  .dark {
+    --background: 128 14% 7%;
+    --foreground: 40 57% 92%;
+
+    --card: 128 14% 10%;
+    --card-foreground: 40 57% 92%;
+
+    --popover: 128 14% 10%;
+    --popover-foreground: 40 57% 92%;
+
+    --primary: 83 20% 60%;
+    --primary-foreground: 128 14% 7%;
+
+    --secondary: 127 10% 20%;
+    --secondary-foreground: 40 57% 92%;
+
+    --muted: 128 14% 15%;
+    --muted-foreground: 127 7% 55%;
+
+    --accent: 92 17% 35%;
+    --accent-foreground: 40 57% 92%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 128 14% 18%;
+    --input: 128 14% 18%;
+    --ring: 83 17% 57%;
+
+    --sidebar-background: 128 14% 8%;
+    --sidebar-foreground: 40 57% 92%;
+    --sidebar-primary: 83 20% 60%;
+    --sidebar-primary-foreground: 128 14% 7%;
+    --sidebar-accent: 128 14% 15%;
+    --sidebar-accent-foreground: 40 57% 92%;
+    --sidebar-border: 128 14% 18%;
+    --sidebar-ring: 83 17% 57%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .container-app {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-md);
+  }
+
+  .shadow-card-hover {
+    box-shadow: var(--shadow-lg);
+  }
+
+  .glass {
+    @apply bg-background/80 backdrop-blur-md;
+  }
+
+  /* BIOCEBS specific component styles */
+  .biocebs-card {
+    @apply rounded-lg border border-border bg-card shadow-card transition-shadow hover:shadow-card-hover;
+  }
+
+  .biocebs-input {
+    @apply rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Custom scrollbar with BIOCEBS colors */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/30 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground/50;
+}

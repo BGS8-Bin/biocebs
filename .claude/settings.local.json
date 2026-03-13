@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la \"C:\\\\Users\\\\fabia\\\\Desktop\\\\Personal\\\\Personal\\\\work\\\\BIOCEBS\\\\biocebsv.1\\\\Biocebs2.6\\\\biocebs-hub-main \\(2\\)\\\\biocebs-hub-main\")",
+      "Bash(find \"C:\\\\Users\\\\fabia\\\\Desktop\\\\Personal\\\\Personal\\\\work\\\\BIOCEBS\\\\biocebsv.1\\\\Biocebs2.6\\\\biocebs-hub-main \\(2\\)\\\\biocebs-hub-main\\\\src\" -type f -name \"*.tsx\" -o -name \"*.ts\" -o -name \"*.jsx\" -o -name \"*.js\" | head -50)",
+      "Bash(find \"C:\\\\Users\\\\fabia\\\\Desktop\\\\Personal\\\\Personal\\\\work\\\\BIOCEBS\\\\biocebsv.1\\\\Biocebs2.6\\\\biocebs-hub-main \\(2\\)\\\\biocebs-hub-main\\\\src\" -type d)",
+      "Bash(find \"C:\\\\Users\\\\fabia\\\\Desktop\\\\Personal\\\\Personal\\\\work\\\\BIOCEBS\\\\biocebsv.1\\\\Biocebs2.6\\\\biocebs-hub-main \\(2\\)\\\\biocebs-hub-main\\\\src\" -type f \\\\\\( -name \"*.tsx\" -o -name \"*.ts\" \\\\\\) | grep -E \"\\(pages|views\\)\" | head -30)",
+      "Bash(find \"C:\\\\Users\\\\fabia\\\\Desktop\\\\Personal\\\\Personal\\\\work\\\\BIOCEBS\\\\biocebsv.1\\\\Biocebs2.6\\\\biocebs-hub-main \\(2\\)\\\\biocebs-hub-main\" -type f \\\\\\( -name \"*.json\" -o -name \"*.ts\" -o -name \"*.tsx\" \\\\\\) | grep -iE \"\\(data|constants|config\\)\" | head -20)",
+      "Bash(find \"C:\\\\Users\\\\fabia\\\\Desktop\\\\Personal\\\\Personal\\\\work\\\\BIOCEBS\\\\biocebsv.1\\\\Biocebs2.6\\\\biocebs-hub-main \\(2\\)\\\\biocebs-hub-main\\\\src\" -type f -name \"*.ts\" -o -name \"*.tsx\" | grep -iE \"\\(hook|context|language|translation|i18n\\)\" | head -20)",
+      "Bash(find \"C:\\\\Users\\\\fabia\\\\Desktop\\\\Personal\\\\Personal\\\\work\\\\BIOCEBS\\\\biocebsv.1\\\\Biocebs2.6\\\\biocebs-hub-main \\(2\\)\\\\biocebs-hub-main\\\\src\" -type f \\\\\\( -name \"translations.ts\" -o -name \"*.json\" -o -name \"i18n*\" \\\\\\))",
+      "Bash(ls -la \"C:\\\\Users\\\\fabia\\\\Desktop\\\\Personal\\\\Personal\\\\work\\\\BIOCEBS\\\\biocebsv.1\\\\Biocebs2.6\\\\biocebs-hub-main \\(2\\)\\\\biocebs-hub-main\\\\src\\\\lib\")",
+      "Bash(find \"C:\\\\Users\\\\fabia\\\\Desktop\\\\Personal\\\\Personal\\\\work\\\\BIOCEBS\\\\biocebsv.1\\\\Biocebs2.6\\\\biocebs-hub-main \\(2\\)\\\\biocebs-hub-main\\\\src\\\\pages\" -type f -name \"*.tsx\" | wc -l)",
+      "Bash(ls \"C:\\\\Users\\\\fabia\\\\Desktop\\\\Personal\\\\Personal\\\\work\\\\BIOCEBS\\\\biocebsv.1\\\\Biocebs2.6\\\\biocebs-hub-main \\(2\\)\\\\biocebs-hub-main\\\\src\\\\pages\")",
+      "Bash(find \"C:\\\\Users\\\\fabia\\\\Desktop\\\\Personal\\\\Personal\\\\work\\\\BIOCEBS\\\\biocebsv.1\\\\Biocebs2.6\\\\biocebs-hub-main \\(2\\)\\\\biocebs-hub-main\\\\src\\\\components\" -type f -name \"*.tsx\" | grep -v \"ui/\" | head -30)"
+    ]
+  }
+}
